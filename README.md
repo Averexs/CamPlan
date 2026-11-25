@@ -9,7 +9,7 @@ Create a folder, save this as `docker-compose.yml`, then run `docker compose up 
 ```yaml
 services:
   camplan:
-    image: ghcr.io/YOUR_GITHUB_USERNAME/camplan:latest
+    image: ghcr.io/averexs/camplan:latest
     container_name: camplan
     restart: unless-stopped
     ports:
