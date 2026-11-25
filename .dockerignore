@@ -1,0 +1,6 @@
+node_modules
+plans
+.git
+.github
+*.md
+docker-compose.yml

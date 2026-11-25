@@ -1,0 +1,12 @@
+{
+  "name": "camplan",
+  "version": "1.0.0",
+  "description": "Self-hosted floor plan and camera placement tool",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": {
+    "express": "^4.19.2",
+    "jspdf": "2.5.1",
+    "pdfjs-dist": "3.11.174"
+  }
+}

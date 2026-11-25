@@ -1,0 +1,14 @@
+# Standalone compose file: no repo clone needed. Just save this file and run:
+#   docker compose up -d
+# Replace YOUR_GITHUB_USERNAME/camplan with your GitHub repo path (lowercase).
+services:
+  camplan:
+    image: ghcr.io/YOUR_GITHUB_USERNAME/camplan:latest
+    # To build from a local clone instead, comment out "image" and use:
+    # build: .
+    container_name: camplan
+    restart: unless-stopped
+    ports:
+      - "8080:3000"
+    volumes:
+      - ./plans:/data/plans

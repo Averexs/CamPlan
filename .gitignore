@@ -1,0 +1,4 @@
+node_modules/
+plans/*
+!plans/.gitkeep
+.DS_Store
