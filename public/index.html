@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>CamPlan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="top">
+  <input id="pname" value="Untitled" aria-label="Project name" autocomplete="off">
+  <button id="bNew">New</button>
+  <button id="bOpen">Open</button>
+  <button id="bSave" class="primary">Save</button>
+  <button id="bUndo" title="Undo">↶</button>
+  <button id="bRedo" title="Redo">↷</button>
+  <span class="sp"></span>
+  <button id="bExport">Export</button>
+  <button id="bSet" title="Settings">⚙</button>
+</header>
+
+<canvas id="cv"></canvas>
+
+<aside id="tools">
+  <button class="tg" id="tg" title="Toggle sidebar">☰</button>
+  <div id="panel">
+    <div id="tb"></div>
+    <div class="grp">
+      <button id="bMulti" class="t"><i>☑</i><span>Multi-select</span></button>
+      <button id="bTidy" class="t"><i>✨</i><span>Tidy walls</span></button>
+      <button id="bDel" class="t"><i>🗑</i><span>Delete selected</span></button>
+    </div>
+    <div class="grp">
+      <button id="bFit" class="t"><i>⤢</i><span>Fit to view</span></button>
+      <div class="row"><button id="bZo">−</button><button id="bZi">+</button></div>
+    </div>
+    <div class="grp">
+      <label class="t" for="file"><i>📄</i><span>Import PDF / image</span></label>
+      <input type="file" id="file" hidden accept="application/pdf,image/*">
+      <div class="sl"><span>Plan opacity</span><input type="range" id="op" min="0" max="100" value="60"></div>
+      <button id="bRmPdf" class="t"><i>✖</i><span>Remove imported plan</span></button>
+    </div>
+  </div>
+</aside>
+
+<div id="hint"><span id="hintTxt"></span><button id="bDone" hidden>Done</button></div>
+<div id="props" hidden></div>
+<div id="toast" hidden></div>
+
+<div class="modal" id="mOpen" hidden><div class="card">
+  <h2>Open project</h2>
+  <div id="plist" class="plist"></div>
+  <div class="actions"><button data-close>Close</button></div>
+</div></div>
+
+<div class="modal" id="mExport" hidden><div class="card">
+  <h2>Export</h2>
+  <label class="opt"><input type="radio" name="fmt" value="pdf" checked> PDF</label>
+  <label class="opt"><input type="radio" name="fmt" value="jpg"> JPG image</label>
+  <label class="opt"><input type="checkbox" id="exPdf" checked> Include imported plan underneath</label>
+  <div class="actions"><button data-close>Cancel</button><button id="bDoExport" class="primary">Export</button></div>
+</div></div>
+
+<div class="modal" id="mSet" hidden><div class="card">
+  <h2>Settings</h2>
+  <label class="opt"><input type="checkbox" id="sDark"> Dark mode</label>
+  <label class="opt"><input type="checkbox" id="sGrid"> Show grid</label>
+  <label class="opt"><input type="checkbox" id="sSnap"> Snap to grid</label>
+  <label class="opt"><input type="checkbox" id="sBlock"> Walls block camera view</label>
+  <p class="ver">CamPlan version <b id="ver">…</b></p>
+  <div class="actions"><button data-close class="primary">Done</button></div>
+</div></div>
+
+<script src="/lib/pdfjs/pdf.min.js"></script>
+<script src="/lib/jspdf/jspdf.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
